@@ -1,0 +1,53 @@
+package org.tensorflow.lite.examples.Poshan.dbutil;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import org.tensorflow.lite.examples.Poshan.Nutrition.CalorieReference;
+import org.tensorflow.lite.examples.Poshan.Nutrition.NutritionInfo;
+import org.tensorflow.lite.examples.Poshan.Nutrition.NutritionReference;
+import org.tensorflow.lite.examples.Poshan.env.Logger;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class DatabaseHelper extends SQLiteOpenHelper {
+
+
+
+    static final String DB_NAME = "poshan.DB";
+    // database version
+    static final int DB_VERSION = 11;
+
+    private Context mycontext;
+
+    private static final Logger LOGGER = new Logger();
+
+
+    // Table Name for personal attributes
+    public static final String FOOD_NUTR_TABLE_NAME = "POSHAN_FOOD_REF";
+
+    public static final String FOOD_REF_ID = "id";
+    public static final String FOOD_REF_NAME="name";
+    public static final String FOOD_REF_BRAND="brandName";
+    public static final String FOOD_REF_SUGAR="sugar";
+    public static final String FOOD_REF_FIBER="fiber";
+    public static final String FOOD_REF_SATURATEDFAT="saturatedFat";
+    public static final String FOOD_REF_PROTIEN="protien";
+    public static final String FOOD_REF_CALORIES="calories";
+    public static final String FOOD_REF_CARBS="carbohydrates";
+    public static final String FOOD_REF_SODIUM="sodium";
+    public static final String FOOD_REF_CALCIUM="calcium";
+    public static final String FOOD_REF_VITC="vitaminC";
+    public static final String FOOD_REF_CHOLESTOROL="cholestorol";
+    public static final String FOOD_REF_FAT="fat";
+    public static final String FOOD_REF_IRON="iron";
+    public static final String FOOD_REF_POTASSIUM="potassium";
+    public static final String FOOD_REF_V

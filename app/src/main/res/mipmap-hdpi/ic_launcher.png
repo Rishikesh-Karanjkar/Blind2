@@ -1,0 +1,80 @@
+package org.tensorflow.lite.examples.Poshan.util;
+
+import org.tensorflow.lite.examples.Poshan.Nutrition.NutritionConstants;
+import org.tensorflow.lite.examples.Poshan.Nutrition.NutritionReference;
+import org.tensorflow.lite.examples.Poshan.Nutrition.NutritiontoReport;
+import org.tensorflow.lite.examples.Poshan.Nutrition.PoshanCache;
+import org.tensorflow.lite.examples.Poshan.env.Logger;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Map;
+
+public class FusionChartsUtil {
+
+    NutritiontoReport nr = null;
+    Map<String, NutritionReference> mapNR=null;
+    int rdaCalories=0;
+    InputStream htmlTemplateStream=null;
+    String numbersString="";
+    String htmlContents;
+    String debugData="";
+
+    private static final Logger LOGGER = new Logger();
+
+    public String getDebugData() {
+        return debugData;
+    }
+
+    public void setDebugData(String debugData) {
+        this.debugData = debugData;
+    }
+
+
+    public FusionChartsUtil(NutritiontoReport nr, Map<String, NutritionReference> mapNR,
+                            int rdaCalories, InputStream htmlTemplateStream) {
+        this.nr = nr;
+        this.mapNR = mapNR;
+        this.rdaCalories = rdaCalories;
+        this.htmlTemplateStream = htmlTemplateStream;
+
+        try {
+            int size = htmlTemplateStream.available();
+            byte[] buffer = new byte[size];
+            htmlTemplateStream.read(buffer);
+            htmlTemplateStream.close();
+            htmlContents = new String(buffer);
+        }catch (IOException e)
+        {
+
+        }
+    }
+
+    public String getNutritionChart( ) {
+
+        int rdaSodium = (int)mapNR.get(NutritionConstants.SODIUM).getMeasure() ;
+        int rdaPotassium = (int)mapNR.get(NutritionConstants.POTASSIUM).getMeasure() ;
+        int rdaIron = (int)mapNR.get(NutritionConstants.IRON).getMeasure() ;
+        int rdaCalcium = (int)mapNR.get(NutritionConstants.CALCIUM).getMeasure();
+        int rdaVitA = (int)mapNR.get(NutritionConstants.VITAMINA).getMeasure();
+        int rdaVitC = (int)mapNR.get(NutritionConstants.VITAMINC).getMeasure();
+        int rdaProtien = (int)mapNR.get(NutritionConstants.PROTIEN).getMeasure() ;
+        int rdaFat = (int)mapNR.get(NutritionConstants.TOTALFAT).getMeasure() ;
+        int rdaCarbs = (int)mapNR.get(NutritionConstants.CARBS).getMeasure() ;
+        int rdaFiber = (int)mapNR.get(NutritionConstants.FIBER).getMeasure();
+
+
+        String fsFile = htmlContents;
+
+        String food="foodname";
+        int currentVal=1;
+
+        String data = "\"data\": [";
+        //Calorie
+        data += getDataVal("Calories", getPercent(rdaCalories, nr.getCalories()));
+        //Protiens
+        data += getDataVal("Protiens", getPercent(rdaProtien, nr.getProtiens()));
+        //Fats
+        data += getDataVal("Fats", getPercent(rdaFat, nr.getFats()));
+        //Carbs
+        data += getDataVal("Carbs

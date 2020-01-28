@@ -1,0 +1,71 @@
+package org.tensorflow.lite.examples.Poshan.dbutil;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+
+import org.tensorflow.lite.examples.Poshan.Nutrition.NutritionInfo;
+import org.tensorflow.lite.examples.Poshan.Nutrition.PoshanCache;
+import org.tensorflow.lite.examples.Poshan.Nutrition.NutritiontoReport;
+import org.tensorflow.lite.examples.Poshan.env.Logger;
+import org.tensorflow.lite.examples.Poshan.util.FoodReferenceDto;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.TimeZone;
+
+
+//We will get to this once the dashboard is ready
+public class NutritionAuditDB {
+
+    private DatabaseHelper dbHelper;
+    private static final Logger LOGGER = new Logger();
+
+    private Context context;
+
+    private SQLiteDatabase database;
+
+    public NutritionAuditDB(Context c) {
+        context = c;
+    }
+
+    public NutritionAuditDB open() throws SQLException {
+        dbHelper = new DatabaseHelper(context);
+        database = dbHelper.getWritableDatabase();
+        return this;
+    }
+
+    public void close() {
+        dbHelper.close();
+    }
+
+    public static String getCurrentDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Date today = Calendar.getInstance().getTime();
+        return dateFormat.format(today);
+    }
+
+    public void insertDailyNutrition(FoodReferenceDto frDto ) {
+        LOGGER.i("Nutriton inserted for today " + frDto.toString());
+
+
+        NutritionInfo nInfo = frDto.getnInfo();
+
+        ContentValues contentValue = new ContentValues();
+        contentValue.put(DatabaseHelper.DAILY_NUTR_CALORIES, nInfo.getCalories());
+        contentValue.put(DatabaseHelper.DAILY_NUTR_PROTIENS, nInfo.getProtien());
+        contentValue.put(DatabaseHelper.DAILY_NUTR_FATS, nInfo.getFat());
+        contentValue.put(DatabaseHelper.DAILY_NUTR_CARBS, nInfo.getCarbohydrates());
+        contentValue.put(DatabaseHelper.DAILY_NUTR_FIBER, nInfo.getFiber());
+        contentValue.put(DatabaseHelper.DAILY_NUTR_SODIUM, nInfo.getSodium());
+        contentValue.put(DatabaseHelper.DAILY_NUTR_POTASSIUM, nInfo.getPotassium());
+        contentValue.put(DatabaseHelper.DAILY_NUTR_IRON, nInfo.getIron());
+        contentValue.put(DatabaseHelper.DAILY_NUTR_CALCIUM, nInfo.getCalcium());
+        contentValue.put(DatabaseHelper.DAILY_NUTR_VITA, nInfo.getVitamin_a());
+        contentValue.put(DatabaseHelper.DAILY_NUTR_VITC, nInfo.getVitamin_c());
+        contentValue.put(DatabaseHelper.DAILY
