@@ -3,6 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.blind2.MainActivity">
     <item
+        android:id="@+id/action_connect_stick"
+        android:orderInCategory="100"
+        android:title="@string/connect_to_stick"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_start_form"
+        android:orderInCategory="100"
+        android:title="@string/registration_form"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
