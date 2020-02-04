@@ -65,8 +65,7 @@ public class ContactOperations {
 		}
 
 		try {
-			cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null, null,
-					null, null);
+			cur = cr.query(ContactsContract.Contacts.CONTENT_URI, null, null,null, null);
 		} catch (Exception ex) {
 			Log.i(TAG, ex.getMessage());
 		}
@@ -74,26 +73,14 @@ public class ContactOperations {
 		try {
 			if (cur.getCount() > 0) {
 				while (cur.moveToNext()) {
-					String id = cur.getString(cur
-							.getColumnIndex(ContactsContract.Contacts._ID));
-					String name = cur
-							.getString(cur
-									.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+					String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
+					String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
 					// Log.i("Names", name);
-					if (Integer
-							.parseInt(cur.getString(cur
-									.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
+					if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
 						// Query phone here. Covered next
-						Cursor phones = ctx
-								.getContentResolver()
-								.query(Phone.CONTENT_URI,
-										null,
-										Phone.CONTACT_ID
-												+ " = " + id, null, null);
+						Cursor phones = ctx.getContentResolver().query(Phone.CONTENT_URI,null,Phone.CONTACT_ID+ " = " + id, null, null);
 						while (phones.moveToNext()) {
-							String phoneNumberX = phones
-									.getString(phones
-											.getColumnIndex(Phone.NUMBER));
+							String phoneNumberX = phones.getString(phones.getColumnIndex(Phone.NUMBER));
 							// Log.i("Number", phoneNumber);
 
 							phoneNumberX = phoneNumberX.replace(" ", "");

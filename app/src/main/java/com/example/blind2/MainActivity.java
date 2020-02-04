@@ -1,5 +1,6 @@
 package com.example.blind2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,8 +46,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_start_form) {
-
+        if (id == R.id.contact_operation) {
+            Intent intent = new Intent(this,ContactTesting.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

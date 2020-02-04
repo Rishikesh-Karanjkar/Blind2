@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.blind2.MainActivity">
     <item
+        android:id="@+id/contact_operation"
+        android:orderInCategory="100"
+        android:title="@string/contacts_operation"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_connect_stick"
         android:orderInCategory="100"
         android:title="@string/connect_to_stick"

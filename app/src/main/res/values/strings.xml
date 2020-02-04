@@ -7,4 +7,9 @@
     <string name="registration">Registration</string>
     <string name="full_name">Full Name</string>
     <string name="email">Email</string>
+    <string name="contacts_operation">Contacts Operation</string>
+    <string name="enter_phone_num_to_search">Enter phone num to search...</string>
+    <string name="search">Search</string>
+    <string name="welcome">Welcome</string>
+    <string name="enter_mobile_number">Enter mobile number..</string>
 </resources>
