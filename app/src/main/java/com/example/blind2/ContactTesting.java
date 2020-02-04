@@ -18,8 +18,8 @@ public class ContactTesting extends AppCompatActivity {
 
     EditText txt;
     Button search;
+    Button delt;
     Boolean b;
-    ContactOperations con;
     TextView tv;
 
     @Override
@@ -30,6 +30,7 @@ public class ContactTesting extends AppCompatActivity {
         txt = (EditText) findViewById(R.id.text1);
         search = (Button) findViewById(R.id.search);
         tv = (TextView) findViewById(R.id.textView);
+        delt = (Button) findViewById(R.id.delete);
 
         if (ContextCompat.checkSelfPermission(ContactTesting.this, Manifest.permission.READ_CONTACTS)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -50,6 +51,13 @@ public class ContactTesting extends AppCompatActivity {
                     tv.setText("Number is present");
                 else
                     tv.setText("Number is absent");
+            }
+        });
+
+        delt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContactOperations.deleteContact(ContactTesting.this,"9876543210");
             }
         });
 
