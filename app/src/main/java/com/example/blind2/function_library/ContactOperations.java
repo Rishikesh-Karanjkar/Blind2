@@ -21,6 +21,11 @@ public class ContactOperations {
 
     public static String TAG = "ContactOperations";
 
+    public static void callTo(String name)
+    {
+
+    }
+
     public static void Insert2Contacts(Context ctx, String nameSurname,
                                        String telephone) {
         if (!isTheNumberExistsinContacts(ctx, telephone)) {
