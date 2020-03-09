@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this,ContactTesting.class);
             startActivity(intent);
         }
+        if (id == R.id.call) {
+            Intent intent = new Intent(this,CallTesting.class);
+            startActivity(intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }

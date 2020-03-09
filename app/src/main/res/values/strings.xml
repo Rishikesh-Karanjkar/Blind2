@@ -13,4 +13,9 @@
     <string name="welcome">Welcome</string>
     <string name="enter_mobile_number">Enter mobile number..</string>
     <string name="delete">Delete</string>
+    <string name="title_activity_call_testing">CallTesting</string>
+    <string name="dial_no" />
+    <string name="call" />
+    <string name="call_operation">call operation</string>
+    <string name="enter_name_or_number" />
 </resources>

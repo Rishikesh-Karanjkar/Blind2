@@ -1,8 +1,6 @@
 
 package com.example.blind2.function_library;
 
-import java.util.ArrayList;
-
 import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
 import android.content.ContentResolver;
@@ -10,21 +8,18 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.provider.ContactsContract.CommonDataKinds.StructuredName;
 import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.PhoneLookup;
 import android.provider.ContactsContract.RawContacts;
-import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.provider.ContactsContract.CommonDataKinds.StructuredName;
 import android.util.Log;
+
+import java.util.ArrayList;
 
 public class ContactOperations {
 
     public static String TAG = "ContactOperations";
-
-    public static void callTo(String name)
-    {
-
-    }
 
     public static void Insert2Contacts(Context ctx, String nameSurname,
                                        String telephone) {
