@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import com.example.blind2.function_library.CallOperations;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -37,6 +38,10 @@ public class CallTesting extends AppCompatActivity {
                     1);// Permission is not granted
         }
 
+
+        String number;
+        number="7798830543";
+        CallOperations.callTo(number,this);
 
 
 
