@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.blind2.function_library.ContactOperations;
 
@@ -47,10 +48,14 @@ public class ContactTesting extends AppCompatActivity {
 
                 b = ContactOperations.isTheNumberExistsinContacts(ContactTesting.this,phonenum);
 
-                if(b)
+                if(b) {
                     tv.setText("Number is present");
-                else
+                    Toast.makeText(getApplicationContext(), "Number present", Toast.LENGTH_SHORT).show();
+                }
+                else {
                     tv.setText("Number is absent");
+                    Toast.makeText(getApplicationContext(), "Number absent", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

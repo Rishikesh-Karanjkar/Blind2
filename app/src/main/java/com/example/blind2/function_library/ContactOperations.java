@@ -54,8 +54,7 @@ public class ContactOperations {
         }
     }
 
-    public static boolean isTheNumberExistsinContacts(Context ctx,
-                                                      String phoneNumber) {
+    public static boolean isTheNumberExistsinContacts(Context ctx, String phoneNumber) {
         Cursor cur = null;
         ContentResolver cr = null;
 
