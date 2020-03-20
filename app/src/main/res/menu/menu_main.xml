@@ -2,6 +2,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.blind2.MainActivity">
+
+    <item
+        android:id="@+id/start_ser"
+        android:orderInCategory="100"
+        android:title="Start Service"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/end_ser"
+        android:orderInCategory="100"
+        android:title="End Service"
+        app:showAsAction="never" />
+
     <item
         android:id="@+id/call"
         android:orderInCategory="100"

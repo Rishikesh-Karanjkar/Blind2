@@ -9,6 +9,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.blind2.services.MobileCheckService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -45,14 +46,22 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        Intent intent1 = new Intent(this, MobileCheckService.class);
+
         //noinspection SimplifiableIfStatement
         if (id == R.id.contact_operation) {
             Intent intent = new Intent(this,ContactTesting.class);
             startActivity(intent);
         }
-        if (id == R.id.call) {
+        else if (id == R.id.call) {
             Intent intent = new Intent(this,CallTesting.class);
             startActivity(intent);
+        }
+        else if (id == R.id.start_ser) {
+            startService(intent1);
+        }
+        else if (id == R.id.end_ser) {
+            stopService(intent1);
         }
 
         return super.onOptionsItemSelected(item);
