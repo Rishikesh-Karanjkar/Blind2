@@ -4,6 +4,11 @@
     tools:context="com.example.blind2.MainActivity">
 
     <item
+        android:id="@+id/user_permission"
+        android:orderInCategory="100"
+        android:title="User Permission"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/start_ser"
         android:orderInCategory="100"
         android:title="Start Service"

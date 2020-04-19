@@ -63,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
         else if (id == R.id.end_ser) {
             stopService(intent1);
         }
+        else if (id == R.id.user_permission) {
+            Intent intent = new Intent(this,UserPermission.class);
+            startActivity(intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }

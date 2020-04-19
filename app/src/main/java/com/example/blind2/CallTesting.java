@@ -35,7 +35,7 @@ public class CallTesting extends AppCompatActivity {
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(CallTesting.this,
                     new String[]{Manifest.permission.READ_CONTACTS,Manifest.permission.CALL_PHONE},
-                    1);// Permission is not granted
+                    1);
         }
 
 
